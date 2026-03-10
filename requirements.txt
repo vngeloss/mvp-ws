@@ -1,0 +1,7 @@
+streamlit
+geemap
+earthengine-api
+pandas
+openpyxl
+scikit-learn
+plotly
