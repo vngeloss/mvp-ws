@@ -1,8 +1,9 @@
 streamlit
-geemap==0.30.0
 earthengine-api
-folium
+geemap==0.30.0
 python-box==6.0.2
+folium
 pandas
+numpy
 scikit-learn
 plotly
