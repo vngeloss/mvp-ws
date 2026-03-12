@@ -3,7 +3,7 @@ earthengine-api
 geemap==0.30.0
 python-box==6.0.2
 folium
-setuptools
+setuptools>=65
 pandas
 numpy
 scikit-learn
