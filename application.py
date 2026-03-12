@@ -1,6 +1,6 @@
 import streamlit as st
 import ee
-import geemap.foliumap as geemap # Используем folium-версию для лучшей совместимости
+import geemap
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import plotly.graph_objects as go
@@ -98,4 +98,5 @@ with col2:
     
     # Маленькая таблица для справки
     st.write("### Исторические данные")
+
     st.dataframe(df.tail(5))
