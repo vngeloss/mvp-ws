@@ -1,9 +1,9 @@
-streamlit
-earthengine-api
-geemap==0.30.0
+streamlit==1.32.0
+earthengine-api==0.1.390
+geemap==0.29.6
 python-box==6.0.2
-folium
-setuptools
+folium==0.15.1
+setuptools==69.0.3
 pandas
 numpy
 scikit-learn
