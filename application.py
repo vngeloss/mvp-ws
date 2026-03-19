@@ -1,6 +1,7 @@
 import streamlit as st
 import ee
 import geemap
+from streamlit_folium import folium_static
 import pandas as pd
 import plotly.graph_objects as go
 from sklearn.linear_model import LinearRegression  # ВОТ ЭТА СТРОКА НУЖНА
@@ -78,7 +79,7 @@ with col1:
         Map.addLayer(snow_layer, {'palette': 'cyan'}, 'Снежный покров')
     
     # ФИНАЛЬНЫЙ ШТРИХ: используем специальный метод для Streamlit
-    Map.to_streamlit(height=600)
+    folium_static(Map, width=700, height=500)
 
 with col2:
     st.subheader("Аналитика и прогноз")
@@ -108,5 +109,6 @@ with col2:
     st.write("### Исторические данные")
 
     st.dataframe(df.tail(5))
+
 
 
