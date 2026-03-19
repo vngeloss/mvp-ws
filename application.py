@@ -2,6 +2,8 @@ import streamlit as st
 import ee
 import geemap
 import pandas as pd
+import plotly.graph_objects as go
+from sklearn.linear_model import LinearRegression  # ВОТ ЭТА СТРОКА НУЖНА
 import json
 
 if 'gcp_service_account' in st.secrets:
@@ -106,4 +108,5 @@ with col2:
     st.write("### Исторические данные")
 
     st.dataframe(df.tail(5))
+
 
