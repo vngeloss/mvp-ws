@@ -2,15 +2,21 @@ import streamlit as st
 import ee
 import geemap
 import pandas as pd
-from sklearn.linear_model import LinearRegression
-import plotly.graph_objects as go
+import json
 
-# 1. Инициализация (Замени на свой ID!)
-ee.Initialize(project='mvp-water-solution-project')
-
+if 'gcp_service_account' in st.secrets:
+    creds_dict = dict(st.secrets['gcp_service_account'])
+    # Исправляем формат ключа, если он считался строкой
+    if isinstance(creds_dict.get('private_key'), str):
+        creds_dict['private_key'] = creds_dict['private_key'].replace('\\n', '\n')
+    
+    credentials = ee.ServiceAccountCredentials(creds_dict['client_email'], key_data=json.dumps(creds_dict))
+    ee.Initialize(credentials, project='mvp-water-solution-project')
+else:
+    ee.Initialize(project='mvp-water-solution-project')
 st.set_page_config(page_title="Water Solution", layout="wide")
 
-# Твои координаты из Colab
+
 area = ee.Geometry.Rectangle([72.16, 50.81, 72.29, 51.03])
 buffered_area = area.buffer(70000)
 
@@ -100,3 +106,4 @@ with col2:
     st.write("### Исторические данные")
 
     st.dataframe(df.tail(5))
+
