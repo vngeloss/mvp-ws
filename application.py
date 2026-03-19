@@ -1,7 +1,7 @@
 import streamlit as st
 import ee
-import geemap
 from streamlit_folium import folium_static
+import geemap
 import pandas as pd
 import plotly.graph_objects as go
 from sklearn.linear_model import LinearRegression  # ВОТ ЭТА СТРОКА НУЖНА
@@ -66,17 +66,18 @@ st.title("🛰 Система прогнозирования паводков")
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    st.subheader("Мониторинг снежного покрова")
+    st.subheader("Карта снегозапасов")
+    # Создаем карту через geemap, но на базе folium
     Map = geemap.Map(center=[50.9, 72.2], zoom=8)
     
-    # Добавь тестовый слой, чтобы понять, работает ли карта вообще
+    # ОБЯЗАТЕЛЬНО добавь базовую подложку, чтобы проверить видимость
     Map.add_basemap('HYBRID') 
     
     if snow_layer:
-        Map.addLayer(snow_layer, {'palette': 'cyan'}, 'Снег')
+        Map.addLayer(snow_layer, {'palette': 'cyan'}, 'Слой снега')
     
-    # Попробуй этот метод вместо to_streamlit
-    folium_static(Map)
+    # ВМЕСТО Map.to_streamlit() используем это:
+    folium_static(Map, width=700, height=500)
 
 with col2:
     st.subheader("Аналитика и прогноз")
@@ -106,6 +107,7 @@ with col2:
     st.write("### Исторические данные")
 
     st.dataframe(df.tail(5))
+
 
 
 
