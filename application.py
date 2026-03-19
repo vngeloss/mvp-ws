@@ -69,7 +69,7 @@ with col1:
     st.subheader("Карта снегозапасов (Sentinel-2)")
     
     # Создаем объект карты
-    Map = geemap.Map(center=[50.9, 72.2], zoom=9)
+    Map = geemap.Map(center=[50.9, 72.2], zoom=8, add_google_map=False)
     
     # Добавляем слои (обязательно добавь хотя бы один стандартный)
     Map.add_basemap('HYBRID') 
@@ -109,6 +109,7 @@ with col2:
     st.write("### Исторические данные")
 
     st.dataframe(df.tail(5))
+
 
 
 
