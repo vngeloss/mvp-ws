@@ -1,7 +1,7 @@
 import streamlit as st
 import ee
 from streamlit_folium import folium_static
-import geemap
+import geemap.foliumap as geemap
 import pandas as pd
 import plotly.graph_objects as go
 from sklearn.linear_model import LinearRegression  # ВОТ ЭТА СТРОКА НУЖНА
@@ -107,6 +107,7 @@ with col2:
     st.write("### Исторические данные")
 
     st.dataframe(df.tail(5))
+
 
 
 
