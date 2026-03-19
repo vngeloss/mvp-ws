@@ -66,20 +66,17 @@ st.title("🛰 Система прогнозирования паводков")
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    st.subheader("Карта снегозапасов (Sentinel-2)")
+    st.subheader("Мониторинг снежного покрова")
+    Map = geemap.Map(center=[50.9, 72.2], zoom=8)
     
-    # Создаем объект карты
-    Map = geemap.Map(center=[50.9, 72.2], zoom=8, add_google_map=False)
-    
-    # Добавляем слои (обязательно добавь хотя бы один стандартный)
+    # Добавь тестовый слой, чтобы понять, работает ли карта вообще
     Map.add_basemap('HYBRID') 
     
-    # Добавляем твой слой снега
     if snow_layer:
-        Map.addLayer(snow_layer, {'palette': 'cyan'}, 'Снежный покров')
+        Map.addLayer(snow_layer, {'palette': 'cyan'}, 'Снег')
     
-    # ФИНАЛЬНЫЙ ШТРИХ: используем специальный метод для Streamlit
-    folium_static(Map, width=700, height=500)
+    # Попробуй этот метод вместо to_streamlit
+    folium_static(Map)
 
 with col2:
     st.subheader("Аналитика и прогноз")
@@ -109,6 +106,7 @@ with col2:
     st.write("### Исторические данные")
 
     st.dataframe(df.tail(5))
+
 
 
 
