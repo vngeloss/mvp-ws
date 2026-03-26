@@ -1,6 +1,7 @@
 geemap==0.30.4
 python-box==6.0.2
 setuptools==69.5.1
+ipython==8.12.3
 earthengine-api
 folium
 streamlit-folium
