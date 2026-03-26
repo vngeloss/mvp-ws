@@ -1,10 +1,6 @@
-streamlit
 geemap==0.30.4
 python-box==6.0.2
-setuptools
+setuptools==69.5.1
 earthengine-api
-pandas
-openpyxl
-scikit-learn
-plotly
+folium
 streamlit-folium
