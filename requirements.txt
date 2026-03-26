@@ -1,7 +1,7 @@
 streamlit
 setuptools
+python-box==6.0.2
 geemap
-python-box<7.0.0
 earthengine-api
 pandas
 openpyxl
